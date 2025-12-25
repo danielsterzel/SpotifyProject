@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.http.SessionCreationPolicy;
-//import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
 /**
  * 1. @Bean -> call method marked with it on startup and save the return as a bean
@@ -51,10 +50,6 @@ public class SecurityConfig {
                 .requestCache(cache -> cache
                         .requestCache(new org.springframework.security.web.savedrequest.HttpSessionRequestCache()))
                 .oauth2Login(Customizer.withDefaults());
-        //                .exceptionHandling(exception -> exception // if user not logged in redirect him to path
-//                        .authenticationEntryPoint(
-//                                new LoginUrlAuthenticationEntryPoint("/login/oauth2/code/spotify")
-//                        ));
 
         return http.build();
     }
